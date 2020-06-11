@@ -1,0 +1,14 @@
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\SelfHostServer.exe.config
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\SelfHostServer.exe
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\SelfHostServer.pdb
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\System.Net.Http.Formatting.dll
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\System.Web.Http.dll
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\System.Web.Http.SelfHost.dll
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\System.Net.Http.Formatting.xml
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\System.Web.Http.xml
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\System.Web.Http.SelfHost.xml
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\obj\Debug\SelfHostServer.csproj.CopyComplete
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\obj\Debug\SelfHostServer.exe
+D:\Documents\Git\SDV701-PianoStore\SelfHostServer\obj\Debug\SelfHostServer.pdb
