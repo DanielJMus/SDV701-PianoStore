@@ -14,7 +14,7 @@ namespace WinFormAdmin
 	{
 
 		private static readonly frmManufacturers _instance = new frmManufacturers();
-		public static frmManufacturers instance
+		public static frmManufacturers Instance
 		{
 			get { return _instance; }
 		}
@@ -39,12 +39,12 @@ namespace WinFormAdmin
 		{
 			string lcName;
 			lcName = Convert.ToString(lstManufacturers.SelectedItem);
-			if(lcName != null)
+			if(!string.IsNullOrEmpty(lcName))
 			{
 				try
 				{
 					frmManufacturer.Run(lcName);
-					frmManufacturers.instance.Hide();
+					frmManufacturers.Instance.Hide();
 				} catch (Exception exception)
 				{
 					MessageBox.Show(exception.Message, "Please selected a manufacturer from the list.");

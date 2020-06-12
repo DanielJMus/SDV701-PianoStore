@@ -39,5 +39,17 @@ namespace WinFormAdmin
 				Type = Char.ToUpper(type)
 			};
 		}
+
+		public string GetTypeName ()
+		{
+			if (Char.ToUpper(Type) == 'D')
+			{
+				return "Digital";
+			} else if (Char.ToUpper(Type) == 'A')
+			{
+				return "Acoustic";
+			}
+			return "Error";
+		}
 	}
 }

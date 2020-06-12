@@ -19,7 +19,7 @@ namespace WinFormAdmin
 		private List<ClsAllPianos> _PianoList;
 		public List<ClsAllPianos> PianoList { get => _PianoList; set => _PianoList = value; }
 
-		public  ClsManufacturer Manufacturers
+		public  ClsManufacturer Manufacturer
 		{
 			get { return _Manufacturer; }
 			set { _Manufacturer = value;  }
@@ -49,7 +49,7 @@ namespace WinFormAdmin
 
 		public void SetDetails (ClsManufacturer prManufacturer)
 		{
-			Manufacturers = prManufacturer;
+			Manufacturer = prManufacturer;
 			lblManufacturerName.Text = _Manufacturer.Name;
 			UpdateForm();
 			UpdateDisplay();
@@ -58,14 +58,27 @@ namespace WinFormAdmin
 		private async void UpdateDisplay()
 		{
 			_PianoList = await ServiceClient.GetAllPianosAsync(_Manufacturer.Name);
-			// Loads all of the items listed for the manufacturer
-			lstPianoListings.DataSource = null;
-			Console.WriteLine(_PianoList[0].Name);
+			lstPianoListings.Items.Clear();
+			if(_PianoList != null)
+			{
+				foreach (ClsAllPianos piano in _PianoList)
+				{
+					string[] columns = { piano.ID.ToString(), piano.Name, piano.GetTypeName(), "$" + piano.Price.ToString() };
+					ListViewItem item = new ListViewItem(columns);
+					lstPianoListings.Items.Add(item);
+				}
+			}
 		}
 
 		public void UpdateForm ()
 		{
 			lblManufacturerName.Text = _Manufacturer.Name;
+		}
+
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			frmManufacturers.Instance.Show();
+			frmManufacturer.Instance.Hide();
 		}
 	}
 }

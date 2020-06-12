@@ -20,7 +20,6 @@ namespace WinFormAdmin
 
 		internal async static Task<ClsManufacturer> GetManufacturerAsync(string prManufacturerName)
 		{
-			Console.WriteLine(prManufacturerName);
 			using (HttpClient lcHttpClient = new HttpClient())
 			{
 				return JsonConvert.DeserializeObject<ClsManufacturer>(await lcHttpClient.GetStringAsync("http://localhost:60064/api/PianoStore/GetManufacturer?Name=" + prManufacturerName));
