@@ -1,0 +1,13 @@
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\bin\Debug\WinFormAdmin.exe.config
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\bin\Debug\WinFormAdmin.exe
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\bin\Debug\WinFormAdmin.pdb
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.csprojAssemblyReference.cache
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.frmManufacturers.resources
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.Properties.Resources.resources
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.csproj.GenerateResource.cache
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.csproj.CopyComplete
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.exe
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.pdb
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.frmManufacturer.resources

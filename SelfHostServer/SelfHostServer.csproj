@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsDBConnection.cs" />
+    <Compile Include="DTO.cs" />
     <Compile Include="PianoStoreController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
