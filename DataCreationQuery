@@ -1,0 +1,39 @@
+INSERT INTO manufacturer(
+manufacturerID, 
+description)
+VALUES (
+'Yamaha',
+'For over a century, Yamaha has blended a tradition of Japanese craftsmanship with innovations in modern materials and sound to create pianos of exceptional tone and breathtaking beauty.'
+);
+
+INSERT INTO manufacturer(
+manufacturerID, 
+description)
+VALUES (
+'Steinway & Sons',
+'For over 160 years, STEINWAY & SONS has been dedicated to making the finest pianos in the world. Our pioneering handcrafted methods are still employed today to ensure our uncompromising standards of quality, in turn ensuring that the STEINWAY remains the peerless instrument of uncompromising expression.'
+);
+
+INSERT INTO manufacturer(
+manufacturerID, 
+description)
+VALUES (
+'Bechstein',
+'Top quality since 1853: the C. Bechstein name is synonymous with exquisite grand and upright pianos made in Germany. Discover our other brands – Outstanding quality for ambitious beginners and professional pianists alike.'
+);
+
+INSERT INTO manufacturer(
+manufacturerID, 
+description)
+VALUES (
+'Shigeru Kawai',
+'A Shigeru piano is much more than the intelligent application of material, labor and design. It is an art form born not from the head, but from the heart. Thus, the craftsman does far more than simply “build” it—he brings it to life. The sensitive nurturing of every part, every joint, every subtle nuance vests each piano with an intangible quality—a soul—that lives on from generation to generation. And those who own a Shigeru piano know that they possess not merely an instrument, but a partner in the musical pursuit of dreams.'
+);
+
+INSERT INTO manufacturer(
+manufacturerID, 
+description)
+VALUES (
+'Korg',
+'KORG's acclaimed flagship piano sound engine and meticulously selected keyboard sounds. Looks that pay respect to acoustic pianos, yet also convey the ingenuity and individuality of electronic instruments. And a panel layout that is carefully designed to draw out the player's personality and expression. Firmly grounded in both newness and in the piano tradition, it's the birth of a masterpiece for a new generation.'
+);

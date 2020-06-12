@@ -12,9 +12,9 @@ namespace SelfHostServer
 {
 	public class PianoStoreController : System.Web.Http.ApiController
 	{
-		public List<string> GetArtistNames()
+		public List<string> GetManufacturers()
 		{
-			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT Name FROM Artist", null);
+			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT manufacturerID FROM manufacturer", null);
 			List<string> lcNames = new List<string>();
 			foreach(DataRow dr in lcResult.Rows)
 			{
