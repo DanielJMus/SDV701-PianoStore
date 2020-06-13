@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="576" Width="461">
     <Grid>
         <Button Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="45" Width="74" Click="Button_Click"/>
-        <ListView x:Name="lstPianos" VerticalAlignment="Top" Height="288"/>
+        <ListView x:Name="lstPianos" VerticalAlignment="Top" Height="288" IsItemClickEnabled="True" DoubleTapped="ListView_DoubleTapped"/>
         <TextBlock x:Name="txtDescription" HorizontalAlignment="Center" Margin="0,293,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="237" Width="440"/>
     </Grid>
 

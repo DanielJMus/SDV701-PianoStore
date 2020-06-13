@@ -41,14 +41,6 @@ namespace WinFormAdmin
 		public DateTime DateModified { get; set; }
 		public string ManufacturerID { get; set; }
 
-		public static ClsAllPianos AddPiano (char type)
-		{
-			return new ClsAllPianos()
-			{
-				Type = Char.ToUpper(type)
-			};
-		}
-
 		public string GetTypeName ()
 		{
 			if (Char.ToUpper(Type) == 'D')

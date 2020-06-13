@@ -76,6 +76,12 @@
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmManufacturer.xbf">
       <PackagePath>frmManufacturer.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmOrder.xbf">
+      <PackagePath>frmOrder.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmPiano.xbf">
+      <PackagePath>frmPiano.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>

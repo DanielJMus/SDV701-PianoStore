@@ -34,5 +34,29 @@ namespace UWPClient
 				return JsonConvert.DeserializeObject<List<ClsAllPianos>>(await lcHttpClient.GetStringAsync("http://localhost:60064/api/PianoStore/GetAllPianos?Manufacturer=" + prManufacturerName));
 			}
 		}
+
+		internal async static Task<ClsAllPianos> GetPianoAsync(int prID)
+		{
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				return JsonConvert.DeserializeObject<ClsAllPianos>(await lcHttpClient.GetStringAsync("http://localhost:60064/api/PianoStore/GetPiano?ID=" + prID));
+			}
+		}
+
+		private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
+		{
+			using (HttpRequestMessage lcReqMessage = new HttpRequestMessage(new HttpMethod(prRequest), prUrl))
+			using (lcReqMessage.Content = new StringContent(JsonConvert.SerializeObject(prItem), Encoding.UTF8, "application/json"))
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				HttpResponseMessage lcRespMessage = await lcHttpClient.SendAsync(lcReqMessage);
+				return await lcRespMessage.Content.ReadAsStringAsync();
+			}
+		}
+
+		internal async static Task<string> InsertOrderAsync(ClsOrder prOrder)
+		{
+			return await InsertOrUpdateAsync(prOrder, "http://localhost:60064/api/PianoStore/PostOrder", "POST");
+		}
 	}
 }

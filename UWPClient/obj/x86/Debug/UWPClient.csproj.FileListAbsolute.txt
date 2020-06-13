@@ -48,3 +48,13 @@ D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmManufacturer.g.i.c
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmManufacturer.g.cs
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmManufacturer.xaml
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmManufacturer.xbf
+D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmPiano.xbf
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmPiano.g.i.cs
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmPiano.g.cs
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmPiano.xaml
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmPiano.xbf
+D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmOrder.xbf
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.g.i.cs
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.g.cs
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.xaml
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.xbf

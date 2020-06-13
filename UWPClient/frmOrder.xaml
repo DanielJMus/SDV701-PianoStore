@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="UWPClient.frmOrder"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="295" Width="432">
+    <Grid Margin="0,0,0,27">
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="141,69,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,74,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="btnOrder" Content="Order" Margin="325,226,0,0" VerticalAlignment="Top" Click="btnOrder_Click"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="141,106,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,113,0,0" Text="Email" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtEmail_Copy" HorizontalAlignment="Left" Margin="141,143,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <TextBlock x:Name="txtPhone" HorizontalAlignment="Left" Margin="53,150,0,0" Text="Phone" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="btnBack" Content="Back" Margin="53,226,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
+    </Grid>
+</Page>

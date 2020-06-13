@@ -25,6 +25,7 @@ namespace UWPClient
 	{
 
 		private ClsManufacturer _manufacturer;
+		private List<ClsAllPianos> _pianoList = new List<ClsAllPianos>();
 
 		public frmManufacturer()
 		{
@@ -33,7 +34,9 @@ namespace UWPClient
 
 		private void ListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
 		{
-			
+			int index = lstPianos.SelectedIndex;
+			int lcListingID = _pianoList[index].ID;
+			Frame.Navigate(typeof(frmPiano), lcListingID);
 		}
 
 		protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -47,10 +50,10 @@ namespace UWPClient
 
 		private async void UpdateForm ()
 		{
-			List<ClsAllPianos> lcPianoList = await ServiceClient.GetAllPianosAsync(_manufacturer.Name);
-			if(lcPianoList != null)
+			_pianoList = await ServiceClient.GetAllPianosAsync(_manufacturer.Name);
+			if(_pianoList != null)
 			{
-				foreach(ClsAllPianos lcPiano in lcPianoList)
+				foreach(ClsAllPianos lcPiano in _pianoList)
 				{
 					lstPianos.Items.Add(lcPiano.Name + "   |    " + ((lcPiano.Type == 'A') ? "Acoustic" : "Digital") + "   |    $" + lcPiano.Price.ToString() );
 				}

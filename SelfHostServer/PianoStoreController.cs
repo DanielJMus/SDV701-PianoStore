@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,7 +79,7 @@ namespace SelfHostServer
 		{
 			Dictionary<string, Object> par = new Dictionary<string, object>(1);
 			par.Add("Manufacturer", manufacturer);
-			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT * from piano WHERE manufacturerID = @Manufacturer", par);
+			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT * from piano WHERE manufacturerID = @Manufacturer AND instock = 1", par);
 			List<ClsAllPianos> lcPianos = new List<ClsAllPianos>();
 			if(lcResult.Rows.Count > 0)
 			{
@@ -268,6 +269,7 @@ namespace SelfHostServer
 					"voices = @Voices, " +
 					"instock = @InStock, " +
 					"type = @Type, " +
+					"style = @Style, " +
 					"dateModified = @DateModified " +
 					"WHERE listingID = @ID", par);
 				if (lcRecCount == 1)
@@ -351,6 +353,37 @@ namespace SelfHostServer
 			}
 			catch (Exception ex)
 			{
+				return ex.GetBaseException().Message;
+			}
+		}
+
+		// INSERT ORDER
+		public string PostOrder(ClsOrder prOrder)
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>();
+			par.Add("Name", prOrder.Name);
+			par.Add("Email", prOrder.Email);
+			par.Add("Phone", prOrder.Phone);
+			par.Add("Total", prOrder.Total);
+			par.Add("Date", prOrder.Date);
+			par.Add("ProductID", prOrder.ProductID);
+			try
+			{
+				int lcRecCount = ClsDBConnection.Execute(
+					"INSERT INTO orders (customerName, customerEmail, customerPhone, purchasePrice, orderDate, listingID) " +
+					"VALUES(@Name, @Email, @Phone, @Total, @Date, @ProductID)", par);
+				if (lcRecCount == 1)
+				{
+					return "Order placed successfully!";
+				}
+				else
+				{
+					return "Unexected Order Insert Count: " + lcRecCount;
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.GetBaseException().Message);
 				return ex.GetBaseException().Message;
 			}
 		}

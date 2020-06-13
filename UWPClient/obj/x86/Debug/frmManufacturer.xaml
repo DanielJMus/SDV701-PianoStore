@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="576" Width="461">
     <Grid>
         <Button x:ConnectionId='2' Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="45" Width="74"                     />
-        <ListView x:ConnectionId='3' x:Name="lstPianos" VerticalAlignment="Top" Height="288"/>
+        <ListView x:ConnectionId='3' x:Name="lstPianos" VerticalAlignment="Top" Height="288" IsItemClickEnabled="True"                                     />
         <TextBlock x:ConnectionId='4' x:Name="txtDescription" HorizontalAlignment="Center" Margin="0,293,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="237" Width="440"/>
     </Grid>
 

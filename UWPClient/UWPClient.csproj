@@ -123,6 +123,12 @@
     <Compile Include="frmManufacturer.xaml.cs">
       <DependentUpon>frmManufacturer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmOrder.xaml.cs">
+      <DependentUpon>frmOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmPiano.xaml.cs">
+      <DependentUpon>frmPiano.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -150,6 +156,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="frmManufacturer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmPiano.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
