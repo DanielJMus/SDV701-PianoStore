@@ -14,7 +14,11 @@ namespace WinFormAdmin
 	{
 
 		private ClsManufacturer _Manufacturer;
-		private static readonly frmManufacturer Instance = new frmManufacturer();
+		private static readonly frmManufacturer _instance = new frmManufacturer();
+		public static frmManufacturer Instance
+		{
+			get { return _instance; }
+		}
 
 		public  ClsManufacturer Manufacturer
 		{
@@ -52,7 +56,7 @@ namespace WinFormAdmin
 			UpdateDisplay();
 		}
 
-		private void UpdateDisplay()
+		public void UpdateDisplay()
 		{
 			lstPianoListings.Items.Clear();
 			if(Manufacturer.PianoList != null)
@@ -90,10 +94,25 @@ namespace WinFormAdmin
 				if(newPiano == 'A')
 				{
 					// Create Acoustic Form
+					frmAcoustic.Run(new ClsAllPianos()
+					{
+						ManufacturerID = lblManufacturerName.Text,
+						Type = 'D',
+						DateModified = DateTime.Now
+					});
+					frmManufacturer.Instance.Hide();
+					
 				} 
 				else if (newPiano == 'D')
 				{
 					// Create Digital Form
+					frmDigital.Run(new ClsAllPianos()
+					{
+						ManufacturerID = lblManufacturerName.Text,
+						Type = 'D',
+						DateModified = DateTime.Now
+					}) ;
+					frmManufacturer.Instance.Hide();
 				}
 			} else
 			{

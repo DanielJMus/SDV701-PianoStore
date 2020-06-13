@@ -29,7 +29,7 @@ namespace WinFormAdmin
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
-			frmManufacturers.Instance.Show();
+			frmManufacturer.Instance.Show();
 			Hide();
 		}
 
@@ -39,12 +39,12 @@ namespace WinFormAdmin
 			{
 				if(!string.IsNullOrEmpty(txtName.Text))
 				{
-					MessageBox.Show(await ServiceClient.InsertPianoAsync(Piano));
-					frmManufacturers.Instance.UpdateDisplay();
+					//MessageBox.Show(await ServiceClient.InsertPianoAsync(Piano));
+					frmManufacturer.Instance.UpdateDisplay();
 				}
 				else
 				{
-					MessageBox.Show(await ServiceClient.UpdatePianoAsync(Piano));
+					//MessageBox.Show(await ServiceClient.UpdatePianoAsync(Piano));
 				}
 			}
 		}
@@ -68,11 +68,11 @@ namespace WinFormAdmin
 
 		protected virtual void UpdateForm()
 		{
-			txtName.Text = Piano.Name;
-			txtDescription.Text = Piano.Description;
+			txtName.Text = (Piano.Name == null) ? string.Empty : Piano.Name;
+			txtDescription.Text = (Piano.Description == null) ? string.Empty : Piano.Description;
 			nmPrice.Value = Piano.Price;
 			cbInStock.Checked = Piano.Instock;
-			lblDateModified.Text = Piano.DateModified.ToString();
+			lblDateModified.Text = (Piano.DateModified == null) ? string.Empty : "Date Modified: " + Piano.DateModified.ToString();
 			lblManufacturer.Text = Piano.ManufacturerID;
 		}
 

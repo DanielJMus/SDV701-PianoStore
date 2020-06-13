@@ -50,6 +50,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO.cs" />
+    <Compile Include="frmAcoustic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAcoustic.Designer.cs">
+      <DependentUpon>frmAcoustic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDigital.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDigital.Designer.cs">
+      <DependentUpon>frmDigital.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManufacturer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +84,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceClient.cs" />
     <Compile Include="TypeDialog.cs" />
+    <EmbeddedResource Include="frmAcoustic.resx">
+      <DependentUpon>frmAcoustic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDigital.resx">
+      <DependentUpon>frmDigital.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManufacturer.resx">
       <DependentUpon>frmManufacturer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManufacturers.resx">
       <DependentUpon>frmManufacturers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPiano.resx">
+      <DependentUpon>frmPiano.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
