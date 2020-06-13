@@ -20,16 +20,32 @@ namespace WinFormAdmin
 			InitializeComponent();
 		}
 
+		public void SetDetails (ClsAllPianos prPiano)
+		{
+			Piano = prPiano;
+			UpdateForm();
+			Show();
+		}
+
 		private void btnClose_Click(object sender, EventArgs e)
 		{
 			frmManufacturers.Instance.Show();
+			Hide();
 		}
 
-		private void btnSave_Click(object sender, EventArgs e)
+		private async void btnSave_Click(object sender, EventArgs e)
 		{
 			if(PushData())
 			{
-
+				if(!string.IsNullOrEmpty(txtName.Text))
+				{
+					MessageBox.Show(await ServiceClient.InsertPianoAsync(Piano));
+					frmManufacturers.Instance.UpdateDisplay();
+				}
+				else
+				{
+					MessageBox.Show(await ServiceClient.UpdatePianoAsync(Piano));
+				}
 			}
 		}
 
@@ -39,18 +55,27 @@ namespace WinFormAdmin
 			{
 				Piano.Name = txtName.Text;
 				Piano.Description = txtDescription.Text;
-				Piano.Finish = txtFinish.Text;
-				Piano.Stand = txtStand.Text;
 				Piano.Price = nmPrice.Value;
-				Piano.Keys = nmKeys.Value;
-				Piano.Voices = nmVoices.Value;
-				Piano.Instock = cbInstock.Checked;
-				Piano.Style = txtStyle.Text;
+				Piano.Instock = cbInStock.Checked;
+				Piano.DateModified = DateTime.Now;
+				return true;
 			} catch (Exception ex)
 			{
 				MessageBox.Show(ex.GetBaseException().Message, "Error, please check your data values");
+				return false;
 			}
 		}
+
+		protected virtual void UpdateForm()
+		{
+			txtName.Text = Piano.Name;
+			txtDescription.Text = Piano.Description;
+			nmPrice.Value = Piano.Price;
+			cbInStock.Checked = Piano.Instock;
+			lblDateModified.Text = Piano.DateModified.ToString();
+			lblManufacturer.Text = Piano.ManufacturerID;
+		}
+
 
 		/*public void SetDetails (ClsAllPianos prPiano)
 		{
