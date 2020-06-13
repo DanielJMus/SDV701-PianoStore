@@ -30,6 +30,7 @@ namespace WinFormAdmin
 		private void btnClose_Click(object sender, EventArgs e)
 		{
 			frmManufacturer.Instance.Show();
+			frmManufacturer.Instance.RefreshFormFromDB(Piano.ManufacturerID);
 			Hide();
 		}
 
@@ -37,15 +38,15 @@ namespace WinFormAdmin
 		{
 			if(PushData())
 			{
-				if(!string.IsNullOrEmpty(txtName.Text))
+				if(Piano.ID < 0)
 				{
-					//MessageBox.Show(await ServiceClient.InsertPianoAsync(Piano));
-					frmManufacturer.Instance.UpdateDisplay();
+					MessageBox.Show(await ServiceClient.InsertPianoAsync(Piano));
 				}
 				else
 				{
-					//MessageBox.Show(await ServiceClient.UpdatePianoAsync(Piano));
+					MessageBox.Show(await ServiceClient.UpdatePianoAsync(Piano));
 				}
+				frmManufacturer.Instance.UpdateDisplay();
 			}
 		}
 
@@ -75,13 +76,5 @@ namespace WinFormAdmin
 			lblDateModified.Text = (Piano.DateModified == null) ? string.Empty : "Date Modified: " + Piano.DateModified.ToString();
 			lblManufacturer.Text = Piano.ManufacturerID;
 		}
-
-
-		/*public void SetDetails (ClsAllPianos prPiano)
-		{
-			_Piano = prPiano;
-			UpdateForm();
-			ShowDialog
-		}*/
 	}
 }

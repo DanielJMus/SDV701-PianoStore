@@ -25,5 +25,26 @@ namespace WinFormAdmin
 		{
 			Instance.SetDetails(prPiano);
 		}
+
+		protected override bool PushData()
+		{
+			if (base.PushData())
+			{
+				Piano.Finish = txtFinish.Text;
+				Piano.Style = txtStyle.Text;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		protected override void UpdateForm()
+		{
+			base.UpdateForm();
+			txtFinish.Text = Piano.Finish;
+			txtStyle.Text = Piano.Style;
+		}
 	}
 }

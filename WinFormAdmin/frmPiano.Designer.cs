@@ -83,6 +83,11 @@
 			// 
 			this.nmPrice.DecimalPlaces = 2;
 			this.nmPrice.Location = new System.Drawing.Point(204, 52);
+			this.nmPrice.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
 			this.nmPrice.Name = "nmPrice";
 			this.nmPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.nmPrice.Size = new System.Drawing.Size(66, 20);

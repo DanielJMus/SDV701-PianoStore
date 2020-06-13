@@ -12,4 +12,3 @@ D:\Documents\Git\SDV701-PianoStore\SelfHostServer\bin\Debug\System.Web.Http.Self
 D:\Documents\Git\SDV701-PianoStore\SelfHostServer\obj\Debug\SelfHostServer.csproj.CopyComplete
 D:\Documents\Git\SDV701-PianoStore\SelfHostServer\obj\Debug\SelfHostServer.exe
 D:\Documents\Git\SDV701-PianoStore\SelfHostServer\obj\Debug\SelfHostServer.pdb
-D:\Documents\Git\SDV701-PianoStore\SelfHostServer\obj\Debug\SelfHostServer.csprojAssemblyReference.cache

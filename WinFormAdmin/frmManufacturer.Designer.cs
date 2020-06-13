@@ -38,6 +38,7 @@
 			this.btnSave = new System.Windows.Forms.Button();
 			this.lblManufacturerName = new System.Windows.Forms.TextBox();
 			this.txtDescription = new System.Windows.Forms.TextBox();
+			this.btnDelete = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// lstPianoListings
@@ -47,6 +48,8 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+			this.lstPianoListings.FullRowSelect = true;
+			this.lstPianoListings.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
 			this.lstPianoListings.HideSelection = false;
 			this.lstPianoListings.Location = new System.Drawing.Point(12, 59);
 			this.lstPianoListings.Name = "lstPianoListings";
@@ -54,6 +57,7 @@
 			this.lstPianoListings.TabIndex = 1;
 			this.lstPianoListings.UseCompatibleStateImageBehavior = false;
 			this.lstPianoListings.View = System.Windows.Forms.View.Details;
+			this.lstPianoListings.DoubleClick += new System.EventHandler(this.lstPianoListings_DoubleClick);
 			// 
 			// columnHeader1
 			// 
@@ -118,11 +122,22 @@
 			this.txtDescription.Size = new System.Drawing.Size(328, 148);
 			this.txtDescription.TabIndex = 6;
 			// 
+			// btnDelete
+			// 
+			this.btnDelete.Location = new System.Drawing.Point(346, 88);
+			this.btnDelete.Name = "btnDelete";
+			this.btnDelete.Size = new System.Drawing.Size(120, 23);
+			this.btnDelete.TabIndex = 7;
+			this.btnDelete.Text = "Delete Item";
+			this.btnDelete.UseVisualStyleBackColor = true;
+			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+			// 
 			// frmManufacturer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(478, 345);
+			this.Controls.Add(this.btnDelete);
 			this.Controls.Add(this.txtDescription);
 			this.Controls.Add(this.lblManufacturerName);
 			this.Controls.Add(this.btnSave);
@@ -147,5 +162,6 @@
 		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.TextBox lblManufacturerName;
 		private System.Windows.Forms.TextBox txtDescription;
+		private System.Windows.Forms.Button btnDelete;
 	}
 }

@@ -58,6 +58,7 @@ namespace SelfHostServer
 		public ClsAllPianos DataRow2AllPianos (DataRow dr)
 		{
 			ClsAllPianos lcPiano = new ClsAllPianos();
+			lcPiano.ID = (int)dr["listingID"];
 			lcPiano.Name = (string)dr["name"];
 			lcPiano.Description = (string)dr["description"];
 			lcPiano.Finish = dr["finish"] is DBNull ? null : (string)dr["finish"];
@@ -84,6 +85,7 @@ namespace SelfHostServer
 				foreach (DataRow dr in lcResult.Rows)
 				{
 					ClsAllPianos lcPiano = new ClsAllPianos();
+					lcPiano.ID = (int)dr["listingID"];
 					lcPiano.Name = (string)dr["name"];
 					lcPiano.Description = (string)dr["description"];
 					lcPiano.Finish = dr["finish"] is DBNull ? null : (string)dr["finish"];
@@ -165,6 +167,142 @@ namespace SelfHostServer
 					return "Unexpected error, no items deleted";
 				}
 			} catch (Exception ex)
+			{
+				return ex.GetBaseException().Message;
+			}
+		}
+
+		// GET PIANO
+
+		public ClsAllPianos GetPiano(string ID)
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>(1);
+			par.Add("ID", ID);
+			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT * from piano WHERE listingID = @ID", par);
+			if (lcResult.Rows.Count > 0)
+			{
+				DataRow row = lcResult.Rows[0];
+				ClsAllPianos lcPiano = new ClsAllPianos();
+				lcPiano.ID = (int)row["listingID"];
+				lcPiano.Name = (string)row["name"];
+				lcPiano.Description = (string)row["description"];
+				lcPiano.Finish = row["finish"] is DBNull ? null : (string)row["finish"];
+				lcPiano.Stand = row["stand"] is DBNull ? null : (string)row["stand"];
+				lcPiano.Price = (decimal)row["price"];
+				lcPiano.Keys = (int)row["keys"];
+				lcPiano.Voices = (int)row["voices"];
+				lcPiano.Instock = (bool)row["instock"];
+				lcPiano.Type = row["type"].ToString()[0];
+				lcPiano.Style = row["style"] is DBNull ? null : (string)row["style"];
+				lcPiano.DateModified = (DateTime)row["dateModified"];
+				lcPiano.ManufacturerID = (string)row["manufacturerID"];
+				return lcPiano;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		// INSERT PIANO
+		public string PostPiano(ClsAllPianos prPiano)
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>();
+			par.Add("Name", prPiano.Name);
+			par.Add("Description", prPiano.Description);
+			par.Add("Finish", prPiano.Finish);
+			par.Add("Stand", prPiano.Stand);
+			par.Add("Price", prPiano.Price);
+			par.Add("Keys", prPiano.Keys);
+			par.Add("Voices", prPiano.Voices);
+			par.Add("InStock", prPiano.Instock);
+			par.Add("Type", prPiano.Type);
+			par.Add("Style", prPiano.Style);
+			par.Add("DateModified", prPiano.DateModified);
+			par.Add("ManufacturerID", prPiano.ManufacturerID);
+			try
+			{
+				int lcRecCount = ClsDBConnection.Execute(
+					"INSERT INTO piano (name, description, finish, stand, price, keys, voices, instock, type, style, dateModified, manufacturerID) " +
+					"VALUES(@Name, @Description, @Finish, @Stand, @Price, @Keys, @Voices, @InStock, @Type, @Style, @DateModified, @ManufacturerID)", par);
+				if (lcRecCount == 1)
+				{
+					return "Added piano listing";
+				}
+				else
+				{
+					return "Unexected Piano Insert Count: " + lcRecCount;
+				}
+			}
+			catch (Exception ex)
+			{
+				return ex.GetBaseException().Message;
+			}
+		}
+
+		// UPDATE PIANO
+		public string PutPiano(ClsAllPianos prPiano)
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>();
+			par.Add("ID", prPiano.ID);
+			par.Add("Name", prPiano.Name);
+			par.Add("Description", prPiano.Description);
+			par.Add("Finish", prPiano.Finish);
+			par.Add("Stand", prPiano.Stand);
+			par.Add("Price", prPiano.Price);
+			par.Add("Keys", prPiano.Keys);
+			par.Add("Voices", prPiano.Voices);
+			par.Add("InStock", prPiano.Instock);
+			par.Add("Type", prPiano.Type);
+			par.Add("Style", prPiano.Style);
+			par.Add("DateModified", prPiano.DateModified);
+			try
+			{
+				int lcRecCount = ClsDBConnection.Execute("UPDATE piano SET " +
+					"name = @Name, " +
+					"description = @Description, " +
+					"finish = @Finish, " +
+					"stand = @Stand, " +
+					"price = @Price, " +
+					"keys = @Keys, " +
+					"voices = @Voices, " +
+					"instock = @InStock, " +
+					"type = @Type, " +
+					"dateModified = @DateModified " +
+					"WHERE listingID = @ID", par);
+				if (lcRecCount == 1)
+				{
+					return "Changes saved successfully";
+				}
+				else
+				{
+					return "Unexpected Piano Update Count: " + lcRecCount;
+				}
+			}
+			catch (Exception ex)
+			{
+				return ex.GetBaseException().Message;
+			}
+		}
+
+		public string DeletePiano(string ID)
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>();
+			par.Add("ID", ID);
+			try
+			{
+				int lcRecCount = ClsDBConnection.Execute("DELETE FROM piano WHERE listingID = @ID", par);
+
+				if (lcRecCount == 1)
+				{
+					return "Successfully deleted piano";
+				}
+				else
+				{
+					return "Unexpected error, no items deleted";
+				}
+			}
+			catch (Exception ex)
 			{
 				return ex.GetBaseException().Message;
 			}

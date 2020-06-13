@@ -43,7 +43,7 @@ namespace WinFormAdmin
 			Instance.Show();
 		}
 
-		private async void RefreshFormFromDB (string prManufacturerName)
+		public async void RefreshFormFromDB (string prManufacturerName)
 		{
 			SetDetails(await ServiceClient.GetManufacturerAsync(prManufacturerName));
 		}
@@ -56,7 +56,7 @@ namespace WinFormAdmin
 			UpdateDisplay();
 		}
 
-		public void UpdateDisplay()
+		public async void UpdateDisplay()
 		{
 			lstPianoListings.Items.Clear();
 			if(Manufacturer.PianoList != null)
@@ -97,10 +97,10 @@ namespace WinFormAdmin
 					frmAcoustic.Run(new ClsAllPianos()
 					{
 						ManufacturerID = lblManufacturerName.Text,
-						Type = 'D',
-						DateModified = DateTime.Now
-					});
-					frmManufacturer.Instance.Hide();
+						Type = 'A',
+						DateModified = DateTime.Now,
+						ID = -1
+					}) ;
 					
 				} 
 				else if (newPiano == 'D')
@@ -110,10 +110,11 @@ namespace WinFormAdmin
 					{
 						ManufacturerID = lblManufacturerName.Text,
 						Type = 'D',
-						DateModified = DateTime.Now
+						DateModified = DateTime.Now,
+						ID = -1
 					}) ;
-					frmManufacturer.Instance.Hide();
 				}
+				frmManufacturer.Instance.Hide();
 			} else
 			{
 				MessageBox.Show("Please save the manufacturer before adding listings.", "Manufacturer has not been added");
@@ -145,6 +146,48 @@ namespace WinFormAdmin
 		{
 			Manufacturer.Name = lblManufacturerName.Text;
 			Manufacturer.Description = txtDescription.Text;
+		}
+
+		private async void lstPianoListings_DoubleClick(object sender, EventArgs e)
+		{
+			if(lstPianoListings.SelectedItems.Count > 0)
+			{
+				int lcID = Convert.ToInt32(lstPianoListings.SelectedItems[0].Text);
+				OpenPianoListing(await ServiceClient.GetPianoAsync(lcID));
+			}
+		}
+
+		private void OpenPianoListing (ClsAllPianos prPiano)
+		{
+			Console.WriteLine(prPiano);
+			if (prPiano.Type == 'A')
+			{
+				// Create Acoustic Form
+				frmAcoustic.Run(prPiano);
+
+			}
+			else if (prPiano.Type == 'D')
+			{
+				// Create Digital Form
+				frmDigital.Run(prPiano);
+			}
+			frmManufacturer.Instance.Hide();
+		}
+
+		private async void btnDelete_Click(object sender, EventArgs e)
+		{
+			string lcName;
+
+			if (lstPianoListings.SelectedItems.Count > 0)
+			{
+				int lcID = Convert.ToInt32(lstPianoListings.SelectedItems[0].Text);
+				var confirmation = MessageBox.Show("Are you sure you want to delete this listing?", "Confirm Deletion", MessageBoxButtons.YesNo);
+				if (confirmation == DialogResult.Yes)
+				{
+					MessageBox.Show(await ServiceClient.DeletePianoAsync(lcID));
+					RefreshFormFromDB(Manufacturer.Name);
+				}
+			}
 		}
 	}
 }

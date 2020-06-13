@@ -65,5 +65,39 @@ namespace WinFormAdmin
 				return await lcRespMessage.Content.ReadAsStringAsync();
 			}
 		}
+
+		// GET PIANO
+
+		internal async static Task<ClsAllPianos> GetPianoAsync(int prID)
+		{
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				return JsonConvert.DeserializeObject<ClsAllPianos>(await lcHttpClient.GetStringAsync("http://localhost:60064/api/PianoStore/GetPiano?ID=" + prID));
+			}
+		}
+
+		// INSERT
+		internal async static Task<string> InsertPianoAsync(ClsAllPianos prPiano)
+		{
+			return await InsertOrUpdateAsync(prPiano, "http://localhost:60064/api/PianoStore/PostPiano", "POST");
+		}
+
+		// UPDATE
+		internal async static Task<string> UpdatePianoAsync(ClsAllPianos prPiano)
+		{
+			return await InsertOrUpdateAsync(prPiano, "http://localhost:60064/api/PianoStore/PutPiano", "PUT");
+		}
+
+		// DELETE
+		internal async static Task<string> DeletePianoAsync(int prID)
+		{
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				HttpResponseMessage lcRespMessage = await lcHttpClient.DeleteAsync("http://localhost:60064/api/PianoStore/DeletePiano?ID=" + prID);
+				return await lcRespMessage.Content.ReadAsStringAsync();
+			}
+		}
+
+
 	}
 }
