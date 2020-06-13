@@ -56,7 +56,7 @@ namespace WinFormAdmin
 			UpdateDisplay();
 		}
 
-		public async void UpdateDisplay()
+		public void UpdateDisplay()
 		{
 			lstPianoListings.Items.Clear();
 			if(Manufacturer.PianoList != null)
@@ -176,8 +176,6 @@ namespace WinFormAdmin
 
 		private async void btnDelete_Click(object sender, EventArgs e)
 		{
-			string lcName;
-
 			if (lstPianoListings.SelectedItems.Count > 0)
 			{
 				int lcID = Convert.ToInt32(lstPianoListings.SelectedItems[0].Text);

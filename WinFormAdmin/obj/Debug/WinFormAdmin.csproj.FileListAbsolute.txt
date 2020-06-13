@@ -14,3 +14,4 @@ D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.frmPiano.
 D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.frmDigital.resources
 D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.frmAcoustic.resources
 D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.csprojAssemblyReference.cache
+D:\Documents\Git\SDV701-PianoStore\WinFormAdmin\obj\Debug\WinFormAdmin.frmOrders.resources

@@ -79,5 +79,11 @@ namespace WinFormAdmin
 				
 			}
 		}
+
+		private void btnOrders_Click(object sender, EventArgs e)
+		{
+			frmOrders.Run();
+			frmManufacturers.Instance.Hide();
+		}
 	}
 }

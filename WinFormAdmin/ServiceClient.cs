@@ -99,5 +99,23 @@ namespace WinFormAdmin
 		}
 
 
+		// ORDERS
+		internal async static Task<List<ClsOrder>> GetOrdersAsync()
+		{
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				return JsonConvert.DeserializeObject<List<ClsOrder>>(await lcHttpClient.GetStringAsync("http://localhost:60064/api/PianoStore/GetAllOrders/"));
+			}
+		}
+
+		internal async static Task<string> DeleteOrderAsync(int prID)
+		{
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				HttpResponseMessage lcRespMessage = await lcHttpClient.DeleteAsync("http://localhost:60064/api/PianoStore/DeleteOrder?ID=" + prID);
+				return await lcRespMessage.Content.ReadAsStringAsync();
+			}
+		}
+
 	}
 }

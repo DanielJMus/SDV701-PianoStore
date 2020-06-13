@@ -37,3 +37,43 @@ VALUES (
 'Korg',
 'KORG's acclaimed flagship piano sound engine and meticulously selected keyboard sounds. Looks that pay respect to acoustic pianos, yet also convey the ingenuity and individuality of electronic instruments. And a panel layout that is carefully designed to draw out the player's personality and expression. Firmly grounded in both newness and in the piano tradition, it's the birth of a masterpiece for a new generation.'
 );
+
+
+INSERT INTO piano(
+name, 
+description,
+stand,
+price,
+keys,
+voices,
+type,
+instock,
+dateModified,
+manufacturerID)
+VALUES (
+'Yamaha PSR-E343',
+'With a stunning variety of voices and styles, the PSR-E343 opens the door to a world of musical enjoyment. Hone your technique with the onboard lessons, then when you are ready, connect to a portable music player and use the unique Melody Suppressor function to jump in and play right along.',
+'Foldable',
+499.00,
+61,
+550,
+'D',
+1,
+'2020-06-12 06:02:24',
+'Yamaha'
+);
+
+INSERT INTO orders(
+customerName, 
+customerEmail, 
+customerPhone, 
+purchasePrice, 
+orderDate, 
+listingID)
+VALUES (
+'John Smith', 
+'jsmith@gmail.com',
+'0211234567', 
+999.00, 
+'2020-06-12 06:02:24', 
+2);

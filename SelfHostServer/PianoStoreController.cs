@@ -307,5 +307,52 @@ namespace SelfHostServer
 				return ex.GetBaseException().Message;
 			}
 		}
+
+		public List<ClsOrder> GetAllOrders()
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>(1);
+			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT * from orders", par);
+			List<ClsOrder> lcOrders = new List<ClsOrder>();
+			if (lcResult.Rows.Count > 0)
+			{
+				foreach (DataRow dr in lcResult.Rows)
+				{
+					ClsOrder lcOrder = new ClsOrder();
+					lcOrder.ID = (int)dr["orderID"];
+					lcOrder.Name = dr["customerName"] is DBNull ? null : (string)dr["customerName"];
+					lcOrder.Email = dr["customerEmail"] is DBNull ? null : (string)dr["customerEmail"];
+					lcOrder.Phone = dr["customerPhone"] is DBNull ? null : (string)dr["customerPhone"];
+					lcOrder.Total = (decimal)dr["purchasePrice"];
+					lcOrder.Date = (DateTime)dr["orderDate"];
+					lcOrder.ProductID = (int)dr["listingID"];
+					lcOrders.Add(lcOrder);
+				}
+				return lcOrders;
+			}
+			return null;
+		}
+
+		public string DeleteOrder(int ID)
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>();
+			par.Add("ID", ID);
+			try
+			{
+				int lcRecCount = ClsDBConnection.Execute("DELETE FROM orders WHERE orderID = @ID", par);
+
+				if (lcRecCount == 1)
+				{
+					return "Successfully deleted order";
+				}
+				else
+				{
+					return "Unexpected error, no items deleted";
+				}
+			}
+			catch (Exception ex)
+			{
+				return ex.GetBaseException().Message;
+			}
+		}
 	}
 }

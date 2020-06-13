@@ -14,6 +14,17 @@ namespace WinFormAdmin
 		public List<ClsAllPianos> PianoList { get; set; }
 	}
 
+	public class ClsOrder
+	{
+		public int ID { get; set; }
+		public string Name { get; set; }
+		public string Email { get; set; }
+		public string Phone { get; set; }
+		public int ProductID { get; set; }
+		public DateTime Date { get; set; }
+		public decimal Total { get; set; }
+	}
+
 	public class ClsAllPianos
 	{
 		public int ID { get; set; }
