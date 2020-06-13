@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,23 @@ namespace UWPClient
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            lstManufacturers.ItemsSource = null;
+            try
+            {
+                lstManufacturers.ItemsSource = await ServiceClient.GetManufacturerNamesAsync();
+            } catch (Exception ex)
+            {
+                
+            }
+        }
+
+        private void lstManufacturers_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(frmManufacturer), lstManufacturers.SelectedItem);
         }
     }
 }

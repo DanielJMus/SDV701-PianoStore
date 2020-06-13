@@ -8,7 +8,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
+        <ListView x:Name="lstManufacturers" Margin="412,334,412,215" IsItemClickEnabled="True" DoubleTapped="lstManufacturers_DoubleTapped"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,104,0,0" Text="Piano Store" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,200,0,0" Text="Double click a manufacturer below" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Height="69"/>
 
     </Grid>
 </Page>
