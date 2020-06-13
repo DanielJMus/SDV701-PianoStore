@@ -30,8 +30,6 @@ namespace SelfHostServer
 		public DateTime DateModified { get; set; }
 		public string ManufacturerID { get; set; }
 
-		public static readonly string TYPE_PROMPT = "Enter A for Acoustic, or D for Digital.";
-
 		public static ClsAllPianos AddPiano(char type)
 		{
 			return new ClsAllPianos()

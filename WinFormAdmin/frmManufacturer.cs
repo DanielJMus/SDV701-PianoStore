@@ -16,9 +16,6 @@ namespace WinFormAdmin
 		private ClsManufacturer _Manufacturer;
 		private static readonly frmManufacturer Instance = new frmManufacturer();
 
-		private List<ClsAllPianos> _PianoList;
-		public List<ClsAllPianos> PianoList { get => _PianoList; set => _PianoList = value; }
-
 		public  ClsManufacturer Manufacturer
 		{
 			get { return _Manufacturer; }
@@ -50,18 +47,17 @@ namespace WinFormAdmin
 		public void SetDetails (ClsManufacturer prManufacturer)
 		{
 			Manufacturer = prManufacturer;
-			lblManufacturerName.Text = _Manufacturer.Name;
+			lblManufacturerName.Enabled = string.IsNullOrEmpty(Manufacturer.Name);
 			UpdateForm();
 			UpdateDisplay();
 		}
 
-		private async void UpdateDisplay()
+		private void UpdateDisplay()
 		{
-			_PianoList = await ServiceClient.GetAllPianosAsync(_Manufacturer.Name);
 			lstPianoListings.Items.Clear();
-			if(_PianoList != null)
+			if(Manufacturer.PianoList != null)
 			{
-				foreach (ClsAllPianos piano in _PianoList)
+				foreach (ClsAllPianos piano in Manufacturer.PianoList)
 				{
 					string[] columns = { piano.ID.ToString(), piano.Name, piano.GetTypeName(), "$" + piano.Price.ToString() };
 					ListViewItem item = new ListViewItem(columns);
@@ -73,12 +69,63 @@ namespace WinFormAdmin
 		public void UpdateForm ()
 		{
 			lblManufacturerName.Text = _Manufacturer.Name;
+			txtDescription.Text = _Manufacturer.Description;
 		}
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
-			frmManufacturers.Instance.Show();
-			frmManufacturer.Instance.Hide();
+			DialogResult result = MessageBox.Show("Settings may not have been saved, are you sure you want to close the form?", "Unsaved settings", MessageBoxButtons.YesNo);
+			if(result == DialogResult.Yes)
+			{
+				frmManufacturers.Instance.Show();
+				frmManufacturer.Instance.Hide();
+			}
+		}
+
+		private void btnAdd_Click(object sender, EventArgs e)
+		{
+			if (!lblManufacturerName.Enabled)
+			{
+				char newPiano = TypeDialog.ShowDialog();
+				if(newPiano == 'A')
+				{
+					// Create Acoustic Form
+				} 
+				else if (newPiano == 'D')
+				{
+					// Create Digital Form
+				}
+			} else
+			{
+				MessageBox.Show("Please save the manufacturer before adding listings.", "Manufacturer has not been added");
+			}
+				
+		}
+
+		private async void btnSave_Click(object sender, EventArgs e)
+		{
+			PushData();
+			if(lblManufacturerName.Enabled)
+			{
+				if(string.IsNullOrEmpty(lblManufacturerName.Text))
+				{
+					MessageBox.Show("Please enter a name for the manufacturer.", "Manufacturer name cannot be empty");
+					return;
+				}
+				MessageBox.Show(await ServiceClient.InsertManufacturerAsync(Manufacturer));
+				frmManufacturers.Instance.UpdateDisplay();
+				lblManufacturerName.Enabled = false;
+			} else
+			{
+				MessageBox.Show(await ServiceClient.UpdateManufacturerAsync(Manufacturer));
+			}
+			// If manufacturer does not exist, INSERT it into the database and add its products, otherwise UPDATE it
+		}
+
+		private void PushData ()
+		{
+			Manufacturer.Name = lblManufacturerName.Text;
+			Manufacturer.Description = txtDescription.Text;
 		}
 	}
 }

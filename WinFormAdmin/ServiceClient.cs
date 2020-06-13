@@ -33,5 +33,37 @@ namespace WinFormAdmin
 				return JsonConvert.DeserializeObject<List<ClsAllPianos>>(await lcHttpClient.GetStringAsync("http://localhost:60064/api/PianoStore/GetAllPianos?Manufacturer=" + prManufacturerName));
 			}
 		}
+
+		private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
+		{ 
+			using (HttpRequestMessage lcReqMessage = new HttpRequestMessage(new HttpMethod(prRequest), prUrl)) 
+			using (lcReqMessage.Content = new StringContent(JsonConvert.SerializeObject(prItem), Encoding.UTF8, "application/json")) 
+			using (HttpClient lcHttpClient = new HttpClient()) { 
+				HttpResponseMessage lcRespMessage = await lcHttpClient.SendAsync(lcReqMessage); 
+				return await lcRespMessage.Content.ReadAsStringAsync(); 
+			} 
+		}
+
+		// INSERT
+		internal async static Task<string> InsertManufacturerAsync(ClsManufacturer prManufacturer)
+		{
+			return await InsertOrUpdateAsync(prManufacturer, "http://localhost:60064/api/PianoStore/PostManufacturer", "POST");
+		}
+
+		// UPDATE
+		internal async static Task<string> UpdateManufacturerAsync(ClsManufacturer prManufacturer)
+		{
+			return await InsertOrUpdateAsync(prManufacturer, "http://localhost:60064/api/PianoStore/PutManufacturer", "PUT");
+		}
+
+		// DELETE
+		internal async static Task<string> DeleteManufacturerAsync(string prManufacturerName)
+		{
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				HttpResponseMessage lcRespMessage = await lcHttpClient.DeleteAsync("http://localhost:60064/api/PianoStore/DeleteManufacturer?Manufacturer=" + prManufacturerName);
+				return await lcRespMessage.Content.ReadAsStringAsync();
+			}
+		}
 	}
 }
