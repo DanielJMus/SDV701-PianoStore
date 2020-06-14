@@ -51,7 +51,8 @@ namespace WinFormAdmin
 			{
 				foreach (ClsOrder lcOrder in _orders)
 				{
-					string[] columns = { lcOrder.ID.ToString(), lcOrder.Name, lcOrder.Email, lcOrder.Phone, lcOrder.ProductID.ToString(), lcOrder.Date.ToString(), "$" + lcOrder.Total };
+					ClsAllPianos _piano = await ServiceClient.GetPianoAsync(lcOrder.ProductID);
+					string[] columns = { lcOrder.ID.ToString(), lcOrder.Name, lcOrder.Email, lcOrder.Phone, _piano.Name.ToString(), lcOrder.Date.ToString(), "$" + lcOrder.Total };
 					ListViewItem item = new ListViewItem(columns);
 					lstOrders.Items.Add(item);
 					totalValue += lcOrder.Total;

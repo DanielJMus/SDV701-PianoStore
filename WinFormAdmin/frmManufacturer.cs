@@ -133,6 +133,12 @@ namespace WinFormAdmin
 					MessageBox.Show("Please enter a name for the manufacturer.", "Manufacturer name cannot be empty");
 					return;
 				}
+				ClsManufacturer _manufacturer = await ServiceClient.GetManufacturerAsync(Manufacturer.Name);
+				if(_manufacturer != null)
+				{
+					MessageBox.Show("This manufacturer already exists.");
+					return;
+				}
 				MessageBox.Show(await ServiceClient.InsertManufacturerAsync(Manufacturer));
 				frmManufacturers.Instance.UpdateDisplay();
 				lblManufacturerName.Enabled = false;
