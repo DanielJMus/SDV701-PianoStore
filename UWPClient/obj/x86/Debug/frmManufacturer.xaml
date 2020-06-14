@@ -6,11 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="576" Width="461">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <Button x:ConnectionId='2' Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="45" Width="74"                     />
-        <ListView x:ConnectionId='3' x:Name="lstPianos" VerticalAlignment="Top" Height="288" IsItemClickEnabled="True"                                     />
-        <TextBlock x:ConnectionId='4' x:Name="txtDescription" HorizontalAlignment="Center" Margin="0,293,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="237" Width="440"/>
+        <Button x:ConnectionId='2' Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20"                     />
+        <ListView x:ConnectionId='3' x:Name="lstPianos" VerticalAlignment="Top" Height="288" IsItemClickEnabled="True"                                      HorizontalAlignment="Center" Margin="0,50,0,0"/>
+        <TextBlock x:ConnectionId='4' x:Name="txtDescription" HorizontalAlignment="Center" Margin="0,293,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="440"/>
     </Grid>
 
 </Page>

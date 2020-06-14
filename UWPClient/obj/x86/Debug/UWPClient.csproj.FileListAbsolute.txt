@@ -57,3 +57,4 @@ D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.g.i.cs
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.g.cs
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.xaml
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\frmOrder.xbf
+D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\UWPClient.csprojAssemblyReference.cache
