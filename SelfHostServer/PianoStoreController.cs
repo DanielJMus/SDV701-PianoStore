@@ -205,6 +205,36 @@ namespace SelfHostServer
 			}
 		}
 
+		public ClsAllPianos GetPianoInStock(string ID)
+		{
+			Dictionary<string, Object> par = new Dictionary<string, object>(1);
+			par.Add("ID", ID);
+			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT * from piano WHERE listingID = @ID AND instock = 1", par);
+			if (lcResult.Rows.Count > 0)
+			{
+				DataRow row = lcResult.Rows[0];
+				ClsAllPianos lcPiano = new ClsAllPianos();
+				lcPiano.ID = (int)row["listingID"];
+				lcPiano.Name = (string)row["name"];
+				lcPiano.Description = (string)row["description"];
+				lcPiano.Finish = row["finish"] is DBNull ? null : (string)row["finish"];
+				lcPiano.Stand = row["stand"] is DBNull ? null : (string)row["stand"];
+				lcPiano.Price = (decimal)row["price"];
+				lcPiano.Keys = (int)row["keys"];
+				lcPiano.Voices = (int)row["voices"];
+				lcPiano.Instock = (bool)row["instock"];
+				lcPiano.Type = row["type"].ToString()[0];
+				lcPiano.Style = row["style"] is DBNull ? null : (string)row["style"];
+				lcPiano.DateModified = (DateTime)row["dateModified"];
+				lcPiano.ManufacturerID = (string)row["manufacturerID"];
+				return lcPiano;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
 		// INSERT PIANO
 		public string PostPiano(ClsAllPianos prPiano)
 		{

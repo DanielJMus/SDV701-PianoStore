@@ -63,7 +63,7 @@ namespace UWPClient
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			Frame.Navigate(typeof(MainPage));
+			Frame.GoBack();
 		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -39,7 +40,14 @@ namespace UWPClient
 		{
 			base.OnNavigatedTo(e);
 
-			_piano = await ServiceClient.GetPianoAsync(int.Parse(e.Parameter.ToString()));
+			_piano = await ServiceClient.IsInStockAsync(int.Parse(e.Parameter.ToString()));
+			if (_piano == null)
+			{
+				var error = new MessageDialog("Sorry, this item is no longer available for order", "Error");
+				await error.ShowAsync();
+				Frame.GoBack();
+			}
+
 			UpdateForm();
 		}
 

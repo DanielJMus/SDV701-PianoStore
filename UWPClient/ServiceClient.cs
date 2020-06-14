@@ -43,6 +43,14 @@ namespace UWPClient
 			}
 		}
 
+		internal async static Task<ClsAllPianos> IsInStockAsync(int prID)
+		{
+			using (HttpClient lcHttpClient = new HttpClient())
+			{
+				return JsonConvert.DeserializeObject<ClsAllPianos>(await lcHttpClient.GetStringAsync("http://localhost:60064/api/PianoStore/GetPianoInStock?ID=" + prID));
+			}
+		}
+
 		private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
 		{
 			using (HttpRequestMessage lcReqMessage = new HttpRequestMessage(new HttpMethod(prRequest), prUrl))

@@ -38,12 +38,18 @@ namespace UWPClient
 		{
 			base.OnNavigatedTo(e);
 			int orderID = int.Parse(e.Parameter.ToString());
-			_piano = await ServiceClient.GetPianoAsync(orderID);
+			_piano = await ServiceClient.IsInStockAsync(orderID);
+			if (_piano == null)
+			{
+				var error = new MessageDialog("Sorry, this item is no longer available for order", "Error");
+				await error.ShowAsync();
+				Frame.Navigate(typeof(MainPage));
+			}
 		}
 
 		private void btnBack_Click(object sender, RoutedEventArgs e)
 		{
-			Frame.Navigate(typeof(MainPage));
+			Frame.GoBack();
 		}
 
 		private async void btnOrder_Click(object sender, RoutedEventArgs e)
@@ -67,6 +73,13 @@ namespace UWPClient
 			var result = await confirmation.ShowAsync();
 			if(result.Label == "Place Order")
 			{
+				bool instock = (await ServiceClient.IsInStockAsync(_piano.ID)) != null;
+				if(!instock)
+				{
+					var error = new MessageDialog("Sorry, this item is no longer available for order", "Error");
+					await error.ShowAsync();
+					return;
+				}
 				string response = await ServiceClient.InsertOrderAsync(new ClsOrder()
 				{
 					Name = txtName.Text,
