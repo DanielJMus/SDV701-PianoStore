@@ -11,7 +11,6 @@ D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\UWPClient.build.appxr
 D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\Newtonsoft.Json.dll
 D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\System.Runtime.dll
 D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\UWPClient.csprojAssemblyReference.cache
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\App.g.i.cs
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\App.g.cs
 D:\Documents\Git\SDV701-PianoStore\UWPClient\obj\x86\Debug\MainPage.g.i.cs

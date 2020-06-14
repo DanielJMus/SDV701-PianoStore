@@ -9,9 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Loaded="Grid_Loaded">
-        <ListView x:Name="lstManufacturers" Margin="412,334,412,215" IsItemClickEnabled="True" DoubleTapped="lstManufacturers_DoubleTapped"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,104,0,0" Text="Piano Store" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,200,0,0" Text="Double click a manufacturer below" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Height="69"/>
+        <ListView x:Name="lstManufacturers" IsItemClickEnabled="True" HorizontalAlignment="Center"  MinHeight="100" DoubleTapped="lstManufacturers_DoubleTapped" MinWidth="480" VerticalAlignment="Top" Margin="0,300,0,0" MaxHeight="480" Height="418" />
+        <TextBlock Margin="0,104,8,0" TextAlignment="Center" Text="Piano Store" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,200,9,0" Text="Double click a manufacturer below" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="24" Height="69" Width="1481"/>
 
     </Grid>
 </Page>

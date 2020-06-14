@@ -13,6 +13,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
@@ -28,7 +30,11 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="MinHeight" />
+      <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="MaxHeight" />
       <RootEvent Name="DoubleTapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">

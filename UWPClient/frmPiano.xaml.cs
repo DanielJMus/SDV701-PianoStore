@@ -55,7 +55,7 @@ namespace UWPClient
 		{
 			txtName.Text = _piano.Name;
 			txtDescription.Text = _piano.Description;
-			txtPrice.Text = _piano.Price.ToString();
+			txtPrice.Text = "$" + _piano.Price.ToString();
 			if(_piano.Type == 'A')
 			{
 				txtDetails.Text = "Finish: " + _piano.Finish + "\n" +

@@ -6,13 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="677" Width="512" Loaded="Page_Loaded">
-    <Grid>
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <TextBlock x:Name="txtName" HorizontalAlignment="Center" Margin="10,47,0,0" Text="[Piano Name]" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="500" FontSize="24" TextAlignment="Center"/>
         <TextBlock x:Name="txtDescription" HorizontalAlignment="Center" Margin="0,104,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="105" Width="488"/>
-        <Button x:Name="btnOrder" Content="Order" Margin="424,630,0,0" VerticalAlignment="Top" Width="64" Click="btnOrder_Click"/>
-        <Button x:Name="btnBack" Content="Back" Margin="19,630,0,0" VerticalAlignment="Top" Width="64" Click="btnBack_Click"/>
-        <TextBlock x:Name="txtPrice" HorizontalAlignment="Left" Margin="286,636,0,0" Text="$64,000" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Height="32" Width="117" FontSize="18"/>
-        <TextBlock x:Name="txtDetails" HorizontalAlignment="Left" Margin="19,221,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="387" Width="469"/>
+        <Button x:Name="btnOrder" Content="Order" Margin="15" VerticalAlignment="Bottom" Click="btnOrder_Click" HorizontalAlignment="Right"/>
+        <Button x:Name="btnBack" Content="Back" Margin="15" VerticalAlignment="Bottom" Click="btnBack_Click" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="txtPrice" HorizontalAlignment="Right" Margin="286,636,60,10" Text="$64,000" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Bottom" Height="32" Width="117" FontSize="18"/>
+        <TextBlock x:Name="txtDetails" HorizontalAlignment="Center" Margin="19,221,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="387" Width="469"/>
     </Grid>
 </Page>
