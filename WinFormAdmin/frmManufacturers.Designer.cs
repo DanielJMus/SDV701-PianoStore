@@ -53,6 +53,7 @@
 			this.btnClose.TabIndex = 3;
 			this.btnClose.Text = "Close";
 			this.btnClose.UseVisualStyleBackColor = true;
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// btnAdd
 			// 
@@ -62,6 +63,7 @@
 			this.btnAdd.TabIndex = 6;
 			this.btnAdd.Text = "Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
+			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
 			// lstManufacturers
 			// 
@@ -70,6 +72,7 @@
 			this.lstManufacturers.Name = "lstManufacturers";
 			this.lstManufacturers.Size = new System.Drawing.Size(255, 160);
 			this.lstManufacturers.TabIndex = 7;
+			this.lstManufacturers.DoubleClick += new System.EventHandler(this.lstManufacturers_DoubleClick);
 			// 
 			// btnOrders
 			// 

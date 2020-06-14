@@ -38,8 +38,8 @@ namespace WinFormAdmin
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
-
-			Close();
+			frmManufacturers.Instance.Show();
+			_instance.Hide();
 		}
 
 		public async void UpdateDisplay ()

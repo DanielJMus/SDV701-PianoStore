@@ -48,28 +48,44 @@ namespace UWPClient
 
 		private async void btnOrder_Click(object sender, RoutedEventArgs e)
 		{
+			if(string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtEmail_Copy.Text))
+			{
+				var error = new MessageDialog("Please fill in all boxes", "Missing Information");
+				await error.ShowAsync();
+				return;
+			}
+			if(!RegexUtilities.IsValidEmail(txtEmail.Text))
+			{
+				var error = new MessageDialog("Please enter a valid email", "Email Invalid");
+				await error.ShowAsync();
+				return;
+			}
 			var confirmation = new MessageDialog("Are you sure you want to place an order?", "Confirm order");
-
 			confirmation.Commands.Add(new UICommand("Place Order", null));
 			confirmation.Commands.Add(new UICommand("Cancel", null));
 			confirmation.CancelCommandIndex = 1;
-
-
 			var result = await confirmation.ShowAsync();
 			if(result.Label == "Place Order")
 			{
-				Debug.WriteLine(result.Label);
 				string response = await ServiceClient.InsertOrderAsync(new ClsOrder()
 				{
 					Name = txtName.Text,
 					Email = txtEmail.Text,
-					Phone = txtPhone.Text,
+					Phone = txtEmail_Copy.Text,
 					Total = _piano.Price,
 					Date = DateTime.Now,
 					ProductID = _piano.ID
-				});		
-				//Frame.Navigate(typeof(MainPage));
+				});
+				_piano.Instock = false;
+				Debug.WriteLine(_piano);
+				await ServiceClient.UpdatePianoAsync(_piano);
+				Frame.Navigate(typeof(MainPage));
 			}
+		}
+
+		private void txtEmail_Copy_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+		{
+			args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
 		}
 	}
 }

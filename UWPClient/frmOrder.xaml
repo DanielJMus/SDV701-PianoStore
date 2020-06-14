@@ -13,7 +13,7 @@
         <Button x:Name="btnOrder" Content="Order" Margin="325,226,0,0" VerticalAlignment="Top" Click="btnOrder_Click"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="141,106,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,113,0,0" Text="Email" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtEmail_Copy" HorizontalAlignment="Left" Margin="141,143,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
+        <TextBox x:Name="txtEmail_Copy" HorizontalAlignment="Left" Margin="141,143,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" BeforeTextChanging="txtEmail_Copy_BeforeTextChanging"/>
         <TextBlock x:Name="txtPhone" HorizontalAlignment="Left" Margin="53,150,0,0" Text="Phone" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button x:Name="btnBack" Content="Back" Margin="53,226,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
     </Grid>

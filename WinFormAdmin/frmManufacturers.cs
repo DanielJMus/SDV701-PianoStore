@@ -85,5 +85,10 @@ namespace WinFormAdmin
 			frmOrders.Run();
 			frmManufacturers.Instance.Hide();
 		}
+
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }

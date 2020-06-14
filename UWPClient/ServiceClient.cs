@@ -58,5 +58,10 @@ namespace UWPClient
 		{
 			return await InsertOrUpdateAsync(prOrder, "http://localhost:60064/api/PianoStore/PostOrder", "POST");
 		}
+
+		internal async static Task<string> UpdatePianoAsync(ClsAllPianos prPiano)
+		{
+			return await InsertOrUpdateAsync(prPiano, "http://localhost:60064/api/PianoStore/PutPiano", "PUT");
+		}
 	}
 }

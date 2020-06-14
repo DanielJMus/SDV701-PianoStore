@@ -47,7 +47,7 @@ namespace SelfHostServer
 		{
 			Dictionary<string, Object> par = new Dictionary<string, object>();
 			par.Add("Name", name);
-			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT * FROM piano WHERE manufacturerID = @Name", par);
+			DataTable lcResult = ClsDBConnection.GetDataTable("SELECT * FROM piano WHERE manufacturerID = @Name AND instock = 1", par);
 			List<ClsAllPianos> lcPianos = new List<ClsAllPianos>();
 			foreach(DataRow dr in lcResult.Rows)
 			{

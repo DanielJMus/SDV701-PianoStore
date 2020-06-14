@@ -50,6 +50,7 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootEvent Name="BeforeTextChanging" />
     </RootType>
     <RootType FullName="UWPClient.frmOrder" />
     <RootType FullName="UWPClient.frmPiano" />

@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-13T08:47:44.413</Modified>
+      <Modified>2020-06-14T01:36:42.829</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\UWPClient.exe">
       <PackagePath>entrypoint\UWPClient.exe</PackagePath>
-      <Modified>2020-06-13T08:47:43.157</Modified>
+      <Modified>2020-06-14T01:36:42.143</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\dndga\.nuget\packages\newtonsoft.json\12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -90,27 +90,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\UWPClient.xr.xml">
       <PackagePath>UWPClient.xr.xml</PackagePath>
-      <Modified>2020-06-13T08:14:37.071</Modified>
+      <Modified>2020-06-14T01:30:23.775</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-06-13T08:47:13.085</Modified>
+      <Modified>2020-06-14T01:36:42.014</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmManufacturer.xbf">
       <PackagePath>frmManufacturer.xbf</PackagePath>
-      <Modified>2020-06-13T08:47:13.085</Modified>
+      <Modified>2020-06-14T01:36:42.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmOrder.xbf">
       <PackagePath>frmOrder.xbf</PackagePath>
-      <Modified>2020-06-13T08:47:13.086</Modified>
+      <Modified>2020-06-14T01:36:42.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\frmPiano.xbf">
       <PackagePath>frmPiano.xbf</PackagePath>
-      <Modified>2020-06-13T08:47:13.086</Modified>
+      <Modified>2020-06-14T01:36:42.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-06-13T08:47:13.086</Modified>
+      <Modified>2020-06-14T01:36:42.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -118,11 +118,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-06-13T08:03:22.855</Modified>
+      <Modified>2020-06-14T01:36:42.326</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Documents\Git\SDV701-PianoStore\UWPClient\bin\x86\Debug\Core\UWPClient.exe">
       <PackagePath>UWPClient.exe</PackagePath>
-      <Modified>2020-06-13T08:47:44.409</Modified>
+      <Modified>2020-06-14T01:36:42.826</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

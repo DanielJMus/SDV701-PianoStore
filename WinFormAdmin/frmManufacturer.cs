@@ -72,6 +72,7 @@ namespace WinFormAdmin
 
 		public void UpdateForm ()
 		{
+			Instance.Text = _Manufacturer.Name;
 			lblManufacturerName.Text = _Manufacturer.Name;
 			txtDescription.Text = _Manufacturer.Description;
 		}
