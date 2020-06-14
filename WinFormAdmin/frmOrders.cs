@@ -46,6 +46,7 @@ namespace WinFormAdmin
 		{
 			List<ClsOrder> _orders = await ServiceClient.GetOrdersAsync();
 			lstOrders.Items.Clear();
+			decimal totalValue = 0;
 			if(_orders != null)
 			{
 				foreach (ClsOrder lcOrder in _orders)
@@ -53,8 +54,10 @@ namespace WinFormAdmin
 					string[] columns = { lcOrder.ID.ToString(), lcOrder.Name, lcOrder.Email, lcOrder.Phone, lcOrder.ProductID.ToString(), lcOrder.Date.ToString(), "$" + lcOrder.Total };
 					ListViewItem item = new ListViewItem(columns);
 					lstOrders.Items.Add(item);
+					totalValue += lcOrder.Total;
 				}
 			}
+			lblTotal.Text = "Total Value: $" + totalValue.ToString();
 			
 		}
 

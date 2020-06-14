@@ -29,8 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.lstOrders = new System.Windows.Forms.ListView();
-			this.btnDelete = new System.Windows.Forms.Button();
-			this.btnClose = new System.Windows.Forms.Button();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,6 +36,9 @@
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.btnDelete = new System.Windows.Forms.Button();
+			this.btnClose = new System.Windows.Forms.Button();
+			this.lblTotal = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// lstOrders
@@ -58,26 +59,6 @@
 			this.lstOrders.TabIndex = 0;
 			this.lstOrders.UseCompatibleStateImageBehavior = false;
 			this.lstOrders.View = System.Windows.Forms.View.Details;
-			// 
-			// btnDelete
-			// 
-			this.btnDelete.Location = new System.Drawing.Point(461, 13);
-			this.btnDelete.Name = "btnDelete";
-			this.btnDelete.Size = new System.Drawing.Size(140, 47);
-			this.btnDelete.TabIndex = 2;
-			this.btnDelete.Text = "Delete";
-			this.btnDelete.UseVisualStyleBackColor = true;
-			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-			// 
-			// btnClose
-			// 
-			this.btnClose.Location = new System.Drawing.Point(461, 197);
-			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(140, 23);
-			this.btnClose.TabIndex = 3;
-			this.btnClose.Text = "Close";
-			this.btnClose.UseVisualStyleBackColor = true;
-			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// columnHeader1
 			// 
@@ -108,11 +89,41 @@
 			// 
 			this.columnHeader7.Text = "Total";
 			// 
+			// btnDelete
+			// 
+			this.btnDelete.Location = new System.Drawing.Point(461, 13);
+			this.btnDelete.Name = "btnDelete";
+			this.btnDelete.Size = new System.Drawing.Size(140, 47);
+			this.btnDelete.TabIndex = 2;
+			this.btnDelete.Text = "Delete";
+			this.btnDelete.UseVisualStyleBackColor = true;
+			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+			// 
+			// btnClose
+			// 
+			this.btnClose.Location = new System.Drawing.Point(461, 197);
+			this.btnClose.Name = "btnClose";
+			this.btnClose.Size = new System.Drawing.Size(140, 23);
+			this.btnClose.TabIndex = 3;
+			this.btnClose.Text = "Close";
+			this.btnClose.UseVisualStyleBackColor = true;
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+			// 
+			// lblTotal
+			// 
+			this.lblTotal.AutoSize = true;
+			this.lblTotal.Location = new System.Drawing.Point(462, 178);
+			this.lblTotal.Name = "lblTotal";
+			this.lblTotal.Size = new System.Drawing.Size(73, 13);
+			this.lblTotal.TabIndex = 4;
+			this.lblTotal.Text = "Total Value: $";
+			// 
 			// frmOrders
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(609, 232);
+			this.Controls.Add(this.lblTotal);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.btnDelete);
 			this.Controls.Add(this.lstOrders);
@@ -120,6 +131,7 @@
 			this.Text = "frmOrders";
 			this.Load += new System.EventHandler(this.frmOrders_Load);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -135,5 +147,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader5;
 		private System.Windows.Forms.ColumnHeader columnHeader6;
 		private System.Windows.Forms.ColumnHeader columnHeader7;
+		private System.Windows.Forms.Label lblTotal;
 	}
 }
