@@ -41,13 +41,5 @@ namespace SelfHostServer
 		public string Style { get; set; }
 		public DateTime DateModified { get; set; }
 		public string ManufacturerID { get; set; }
-
-		public static ClsAllPianos AddPiano(char type)
-		{
-			return new ClsAllPianos()
-			{
-				Type = Char.ToUpper(type)
-			};
-		}
 	}
 }

@@ -54,7 +54,7 @@ namespace UWPClient
 
 		private async void btnOrder_Click(object sender, RoutedEventArgs e)
 		{
-			if(string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtEmail_Copy.Text))
+			if(string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPhone.Text))
 			{
 				var error = new MessageDialog("Please fill in all boxes", "Missing Information");
 				await error.ShowAsync();
@@ -84,7 +84,7 @@ namespace UWPClient
 				{
 					Name = txtName.Text,
 					Email = txtEmail.Text,
-					Phone = txtEmail_Copy.Text,
+					Phone = txtPhone.Text,
 					Total = _piano.Price,
 					Date = DateTime.Now,
 					ProductID = _piano.ID
@@ -96,7 +96,7 @@ namespace UWPClient
 			}
 		}
 
-		private void txtEmail_Copy_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+		private void txtPhone_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
 		{
 			args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
 		}
