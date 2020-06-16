@@ -29,6 +29,14 @@ namespace WinFormAdmin
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
+			if(txtDescription.Text != _Piano.Description || txtName.Text != _Piano.Name || cbInStock.Checked != _Piano.Instock || nmPrice.Value != _Piano.Price)
+			{
+				DialogResult result = MessageBox.Show("Settings may not have been saved, are you sure you want to close the form?", "Unsaved settings", MessageBoxButtons.YesNo);
+				if (result == DialogResult.No)
+				{
+					return;
+				}
+			}
 			frmManufacturer.Instance.Show();
 			frmManufacturer.Instance.RefreshFormFromDB(Piano.ManufacturerID);
 			Hide();

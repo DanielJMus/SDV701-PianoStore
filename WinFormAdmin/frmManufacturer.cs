@@ -79,12 +79,16 @@ namespace WinFormAdmin
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show("Settings may not have been saved, are you sure you want to close the form?", "Unsaved settings", MessageBoxButtons.YesNo);
-			if(result == DialogResult.Yes)
+			if(txtDescription.Text != _Manufacturer.Description)
 			{
-				frmManufacturers.Instance.Show();
-				frmManufacturer.Instance.Hide();
+				DialogResult result = MessageBox.Show("Settings may not have been saved, are you sure you want to close the form?", "Unsaved settings", MessageBoxButtons.YesNo);
+				if (result == DialogResult.No)
+				{
+					return;
+				}
 			}
+			frmManufacturers.Instance.Show();
+			frmManufacturer.Instance.Hide();
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e)
