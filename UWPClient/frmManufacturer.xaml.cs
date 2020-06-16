@@ -35,8 +35,9 @@ namespace UWPClient
 		private void ListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
 		{
 			int index = lstPianos.SelectedIndex;
-			int lcListingID = _pianoList[index].ID;
-			Frame.Navigate(typeof(frmPiano), lcListingID);
+			string lcListingID = _pianoList[index].ID.ToString();
+			string[] parameters = new string[2] { _pianoList[index].ManufacturerID, lcListingID };
+			Frame.Navigate(typeof(frmPiano), parameters);
 		}
 
 		protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -45,17 +46,23 @@ namespace UWPClient
 
 			string lcManufacturer = e.Parameter.ToString();
 			_manufacturer = await ServiceClient.GetManufacturerAsync(lcManufacturer);
+			if(_manufacturer == null)
+			{
+				Frame.Navigate(typeof(MainPage));
+				return;
+			}
 			UpdateForm();
 		}
 
 		private async void UpdateForm ()
 		{
 			_pianoList = await ServiceClient.GetAllPianosAsync(_manufacturer.Name);
-			// Sort pianos alphabetically
-			_pianoList = _pianoList.OrderBy(x => x.Name).ToList();
+			
 			if(_pianoList != null)
 			{
-				foreach(ClsAllPianos lcPiano in _pianoList)
+				// Sort pianos alphabetically
+				_pianoList = _pianoList.OrderBy(x => x.Name).ToList();
+				foreach (ClsAllPianos lcPiano in _pianoList)
 				{
 					lstPianos.Items.Add(lcPiano.Name + "   |    " + ((lcPiano.Type == 'A') ? "Acoustic" : "Digital") + "   |    $" + lcPiano.Price.ToString() );
 				}
@@ -65,7 +72,7 @@ namespace UWPClient
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			Frame.GoBack();
+			Frame.Navigate(typeof(MainPage));
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -40,12 +41,25 @@ namespace UWPClient
 		{
 			base.OnNavigatedTo(e);
 
-			_piano = await ServiceClient.IsInStockAsync(int.Parse(e.Parameter.ToString()));
+			string[] parameters = (string[])e.Parameter;
+			Debug.WriteLine(parameters[1]);
+
+			_piano = await ServiceClient.IsInStockAsync(int.Parse(parameters[1]));
 			if (_piano == null)
 			{
 				var error = new MessageDialog("Sorry, this item is no longer available for order", "Error");
 				await error.ShowAsync();
-				Frame.GoBack();
+				ClsManufacturer lcManufacturer = await ServiceClient.GetManufacturerAsync(parameters[0]);
+				if(lcManufacturer == null)
+				{
+					Frame.Navigate(typeof(MainPage));
+					return;
+				} else
+				{
+					Frame.Navigate(typeof(frmManufacturer), parameters[0]);
+					return;
+				}
+				
 			}
 
 			UpdateForm();
