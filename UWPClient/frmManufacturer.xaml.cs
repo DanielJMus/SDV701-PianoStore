@@ -51,6 +51,8 @@ namespace UWPClient
 		private async void UpdateForm ()
 		{
 			_pianoList = await ServiceClient.GetAllPianosAsync(_manufacturer.Name);
+			// Sort pianos alphabetically
+			_pianoList = _pianoList.OrderBy(x => x.Name).ToList();
 			if(_pianoList != null)
 			{
 				foreach(ClsAllPianos lcPiano in _pianoList)
