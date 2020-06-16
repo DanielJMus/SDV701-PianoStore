@@ -90,7 +90,8 @@ namespace UWPClient
 					ProductID = _piano.ID
 				});
 				_piano.Instock = false;
-				Debug.WriteLine(_piano);
+				var success = new MessageDialog("Thank you, your order has been placed", "Order Successful");
+				await success.ShowAsync();
 				await ServiceClient.UpdatePianoAsync(_piano);
 				Frame.Navigate(typeof(MainPage));
 			}
