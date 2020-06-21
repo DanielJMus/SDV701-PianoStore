@@ -106,6 +106,8 @@
 			// cbInStock
 			// 
 			this.cbInStock.AutoSize = true;
+			this.cbInStock.Checked = true;
+			this.cbInStock.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.cbInStock.Location = new System.Drawing.Point(204, 240);
 			this.cbInStock.Name = "cbInStock";
 			this.cbInStock.Size = new System.Drawing.Size(66, 17);

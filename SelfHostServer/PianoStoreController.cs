@@ -169,7 +169,7 @@ namespace SelfHostServer
 				}
 			} catch (Exception ex)
 			{
-				return ex.GetBaseException().Message;
+				return "Error, manufacturer could not be deleted, perhaps orders are still open for it?";
 			}
 		}
 
@@ -336,7 +336,7 @@ namespace SelfHostServer
 			}
 			catch (Exception ex)
 			{
-				return ex.GetBaseException().Message;
+				return "Cannot delete this item, it may be still referenced by other items in the system.";
 			}
 		}
 
